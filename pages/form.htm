@@ -1,0 +1,102 @@
+<form ng-submit="form.addMatch()" class="form-horizontal text-center">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Enter Match Details</legend>
+
+<!-- First Team input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstTeam">First Team</label>
+  <div class="col-md-5">
+  <input id="firstTeam" ng-model="form.newMatch.firstTeam" name="firstTeam" type="text" placeholder="First Team " class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Second Team input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="secondTeam">Second Team</label>
+  <div class="col-md-5">
+  <input id="secondTeam" ng-model="form.newMatch.secondTeam" name="secondTeam" type="text" placeholder="Second Team" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- City input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputCity">City Name</label>
+  <div class="col-md-5">
+  <input id="inputCity" ng-model="form.newMatch.city" name="inputCity" type="text" placeholder="City Name" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Stadium input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputStadium">Stadium Name</label>
+  <div class="col-md-5">
+  <input id="inputStadium" ng-model="form.newMatch.stadium" name="inputStadium" type="text" placeholder="Stadium Name" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Date input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputDate">Date</label>
+  <div class="col-md-5">
+  <input id="inputDate" ng-model="form.newMatch.date" name="inputDate" type="text" placeholder="DD/MM/YYYY" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Format Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputFormat">Format</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="inputFormat-0">
+      <input type="radio" ng-model="form.newMatch.format" name="inputFormat" id="inputFormat-0" value="T 20" checked="checked">
+      T 20
+    </label>
+    <label class="radio-inline" for="inputFormat-1">
+      <input type="radio" ng-model="form.newMatch.format" name="inputFormat" id="inputFormat-1" value="ODI">
+      ODI
+    </label>
+    <label class="radio-inline" for="inputFormat-2">
+      <input type="radio" ng-model="form.newMatch.format" name="inputFormat" id="inputFormat-2" value="Test">
+      Test
+    </label>
+  </div>
+</div>
+
+<!-- League Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputLeague">League</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="inputLeague-0">
+      <input type="radio" ng-model="form.newMatch.league" name="inputLeague" id="inputLeague-0" value="International" checked="checked">
+      International
+    </label>
+    <label class="radio-inline" for="inputLeague-1">
+      <input type="radio" ng-model="form.newMatch.league" name="inputLeague" id="inputLeague-1" value="IPL">
+      IPL
+    </label>
+    <label class="radio-inline" for="inputLeague-2">
+      <input type="radio" ng-model="form.newMatch.league" name="inputLeague" id="inputLeague-2" value="County Cricket">
+      County Cricket
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="inputMatch"></label>
+  <div class="col-md-4">
+    <button id="inputMatch" name="inputMatch" class="btn btn-block btn-custom1">Submit</button>
+  </div>
+</div>
+
+<!-- Acknowledgement Text -->
+<!-- <h4 class="text-center fade" ng-show="form.bool">Form Submitted Successfully!</h4> -->
+
+</fieldset>
+</form>

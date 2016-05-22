@@ -1,0 +1,35 @@
+<h2 class="text-center">Matches</h2>
+<h4 class="text-center">
+  <!--date-->
+</h4>
+
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <a href="#/form" class="btn btn-custom2 pull-right">Enter New Match Details</a>
+  </div>
+</div>
+
+<br>
+
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Match</th>
+      <th>Venue</th>
+      <th>Format</th>
+      <th>League</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="match in main.matches">
+      <td>{{match.date}}</td>
+      <td>{{match.firstTeam}} vs {{match.secondTeam}}</td>
+      <td>{{match.stadium}}, {{match.city}}</td>
+      <td>{{match.format}}</td>
+      <td>{{match.league}}</td>
+    </tr>
+  </tbody>
+</table>
