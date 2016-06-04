@@ -3,11 +3,12 @@
   <!--date-->
 </h4>
 
-<br><br>
+<br>
 
 <div class="container">
   <div class="row">
-    <a href="#/form" class="btn btn-custom2 pull-right">Enter New Match Details</a>
+    <a href="#/form" class="btn btn-primary"><b>Enter New Match Details</b></a>
+    <a href="#/" ng-click="main.toggle = !main.toggle" ng-class="main.color()" class="btn btn-round-sm btn-sm pull-right"><b>{{main.labelName()}}</b></a>
   </div>
 </div>
 
@@ -24,12 +25,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="match in main.matches">
+    <tr ng-repeat="match in main.matches | orderBy : '-date'">
       <td>{{match.date}}</td>
       <td>{{match.firstTeam}} vs {{match.secondTeam}}</td>
       <td>{{match.stadium}}, {{match.city}}</td>
       <td>{{match.format}}</td>
       <td>{{match.league}}</td>
+      <td><button ng-disabled="main.toggle == false" class="btn btn-danger btn-circle">x</button></td>
     </tr>
   </tbody>
 </table>

@@ -27,7 +27,28 @@ cricBase.controller('mainController',['$scope', '$firebaseArray', '$resource', f
 
   var ref = new Firebase('https://cricbase626262.firebaseio.com/Matches');
   vm.matches = $firebaseArray(ref);
+  console.log(vm.matches);
 
+  //Toggle Edit/Delete for elements
+  vm.toggle = false;
+  vm.labelName = function(){
+    if(vm.toggle){
+      return 'done';
+    }
+    else {
+      return 'edit';
+    }
+  };
+  vm.color = function(){
+    if(vm.toggle){
+      return 'btn-success';
+    }
+    else{
+      return 'btn-warning';
+    }
+  };
+
+  //Remove/Update Elements
 
 }]);
 
