@@ -1,3 +1,15 @@
+/*body{
+  background-image: url('back/3.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: black;
+}*/
+
 .getinline{
   display:inline-block;
   font-size: 1.5em;
@@ -33,8 +45,8 @@ h2{
   border-radius: 15px;
 }
 .btn-round-lg{
-border-radius: 22.5px;
+  border-radius: 22.5px;
 }
 .btn-round-sm{
-border-radius: 15px;
+  border-radius: 15px;
 }

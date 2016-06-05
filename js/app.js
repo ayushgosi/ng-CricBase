@@ -11,11 +11,6 @@ cricBase.config(function($routeProvider){
     controllerAs: 'main'
   })
 
-    .when('/form', {
-      templateUrl: 'pages/form.htm',
-      controller: 'formController',
-      controllerAs: 'form'
-    })
 });
 
 //Services
@@ -27,7 +22,26 @@ cricBase.controller('mainController',['$scope', '$firebaseArray', '$resource', f
 
   var ref = new Firebase('https://cricbase626262.firebaseio.com/Matches');
   vm.matches = $firebaseArray(ref);
-  console.log(vm.matches);
+
+  //Add New Match
+  function match(){
+    this.match = '';
+    this.venue = '';
+    this.date = '';
+    this.format = 'Format';
+    this.league = 'League';
+  }
+  vm.newMatch = new match();
+
+  vm.addMatch = function(){
+    vm.matches.$add(vm.newMatch);
+    vm.newMatch = new match();
+  };
+
+  //Format/League Values
+  // vm.formats = {
+  //
+  // }
 
   //Toggle Edit/Delete for elements
   vm.toggle = false;
@@ -49,34 +63,11 @@ cricBase.controller('mainController',['$scope', '$firebaseArray', '$resource', f
   };
 
   //Remove/Update Elements
-
-}]);
-
-cricBase.controller('formController', ['$scope', '$firebaseArray', '$resource', '$timeout', function($scope, $firebaseArray, $resource, $timeout){
-  var vm = this;
-
-  var ref = new Firebase('https://cricbase626262.firebaseio.com/Matches');
-  vm.matchData = $firebaseArray(ref);
-
-  function match(){
-    this.firstTeam = '';
-    this.secondTeam = '';
-    this.city = '';
-    this.stadium = '';
-    this.date = '';
-    this.format = '';
-    this.league = '';
+  vm.removeMatch = function(match){
+    vm.matches.$remove(match);
   }
-  vm.newMatch = new match();
-  vm.bool = false;
-
-  vm.addMatch = function(){
-    vm.matchData.$add(vm.newMatch);
-    vm.newMatch = new match();
-    // vm.bool = true;
-    // $timeout(function(){
-    //   vm.bool = false;
-    // },2000);
+  vm.editMatch = function(match){
+    vm.matches.$save(match);
   }
 
 }]);

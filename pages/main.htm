@@ -1,16 +1,38 @@
-<h2 class="text-center">Matches</h2>
-<h4 class="text-center">
-  <!--date-->
-</h4>
+<h2 class="text-center">matches</h2>
 
 <br>
 
-<div class="container">
-  <div class="row">
-    <a href="#/form" class="btn btn-primary"><b>Enter New Match Details</b></a>
-    <a href="#/" ng-click="main.toggle = !main.toggle" ng-class="main.color()" class="btn btn-round-sm btn-sm pull-right"><b>{{main.labelName()}}</b></a>
+<form ng-submit="main.addMatch()" role="form" class="form-inline">
+  <!-- <label>Enter New Match:</label> -->
+  <div class="form-group">
+    <input type="text" ng-model="main.newMatch.date" class="form-control" placeholder="DD/MM/YYYY" required>
   </div>
-</div>
+  <div class="form-group">
+    <input type="text" ng-model="main.newMatch.match" class="form-control" placeholder="Team A vs Team B" required>
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="main.newMatch.venue" class="form-control" placeholder="Stadium, City" required>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="main.newMatch.format">
+      <option disabled>Format</option>
+      <option value="ODI">One Day International</option>
+      <option value="T20">Twenty 20</option>
+      <option value="Test">Test Match</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="main.newMatch.league">
+      <option disabled>League</option>
+      <option value="International">International</option>
+      <option value="IPL">Indian Premiere League</option>
+      <option value="County Cricket">County Cricket</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-round-sm btn-sm"><b>Submit Match</b></button>
+  </div>
+</form>
 
 <br>
 
@@ -22,16 +44,17 @@
       <th>Venue</th>
       <th>Format</th>
       <th>League</th>
+      <th><a href="#/" ng-click="main.toggle = !main.toggle" ng-class="main.color()" class="btn btn-round-sm btn-sm"><b>{{main.labelName()}}</b></a></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="match in main.matches | orderBy : '-date'">
       <td>{{match.date}}</td>
-      <td>{{match.firstTeam}} vs {{match.secondTeam}}</td>
-      <td>{{match.stadium}}, {{match.city}}</td>
+      <td>{{match.match}}</td>
+      <td>{{match.venue}}</td>
       <td>{{match.format}}</td>
       <td>{{match.league}}</td>
-      <td><button ng-disabled="main.toggle == false" class="btn btn-danger btn-circle">x</button></td>
+      <td><button ng-hide="main.toggle == false" ng-click="main.removeMatch(match)" class="btn btn-danger btn-circle">x</button></td>
     </tr>
   </tbody>
 </table>
